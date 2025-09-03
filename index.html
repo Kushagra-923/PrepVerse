@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scaler Previous Year Question Bank</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #f5f5f5;
+      display: flex;
+    }
+    .sidebar {
+      width: 200px;
+      background: #1f1f1f;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      overflow-y: auto;
+      padding: 15px;
+      box-sizing: border-box;
+    }
+    .sidebar h2 {
+      margin-bottom: 20px;
+      color: #4cafef;
+      font-size: 16px;
+      text-align: center;
+    }
+    .subject-group {
+      margin-bottom: 20px;
+    }
+    .subject-title {
+      color: #ffb347;
+      font-weight: bold;
+      margin-bottom: 10px;
+      padding: 8px;
+      background: #2a2a2a;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .subject-title:hover {
+      background: #333;
+    }
+    .subject-options {
+      display: none;
+      margin-left: 15px;
+    }
+    .subject-options.active {
+      display: block;
+    }
+    .sidebar a {
+      display: block;
+      padding: 8px 12px;
+      margin-bottom: 6px;
+      color: #f5f5f5;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background 0.3s;
+      font-size: 14px;
+    }
+    .sidebar a:hover {
+      background: #333;
+    }
+    .sidebar a.active {
+      background: #4cafef;
+      color: #121212;
+    }
+    .main {
+      margin-left: 220px;
+      padding: 20px;
+      flex-grow: 1;
+    }
+    .main h1 {
+      color: #4cafef;
+    }
+    .breadcrumb {
+      color: #888;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+    .search-box {
+      margin-bottom: 20px;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+    .question {
+      background: #1f1f1f;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+    }
+    .question h3 {
+      margin: 0 0 10px;
+      color: #ffb347;
+    }
+    .answer {
+      display: none;
+      margin-top: 10px;
+      color: #90ee90;
+      white-space: pre-wrap;
+    }
+    .show-btn {
+      margin-top: 10px;
+      background: #4cafef;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      color: #121212;
+      font-weight: bold;
+    }
+    .content-section {
+      display: none;
+    }
+    .content-section.active {
+      display: block;
+    }
+    .notes-placeholder {
+      background: #1f1f1f;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      color: #888;
+    }
+    .home-section {
+      display: block;
+    }
+  </style>
+</head>
+<script src="script.js">
+</script>
+<body>
+  <div class="sidebar">
+    <h2>Navigation</h2>
+    
+    <div class="subject-group">
+      <div class="subject-title" onclick="toggleSubject('discrete-maths')"> Discrete Maths</div>
+      <div class="subject-options" id="discrete-maths-options">
+        <a href="#" onclick="showContent('discrete-maths-questions')"> Previous Year Questions</a>
+        <a href="#" onclick="showContent('discrete-maths-notes')">Notes</a>
+      </div>
+    </div>
+
+    <div class="subject-group">
+      <div class="subject-title" onclick="toggleSubject('ipc')"> IPC</div>
+      <div class="subject-options" id="ipc-options">
+        <a href="#" onclick="showContent('ipc-questions')"> Previous Year Questions</a>
+        <a href="#" onclick="showContent('ipc-notes')"> Notes</a>
+      </div>
+    </div>
+
+    <div class="subject-group">
+      <div class="subject-title" onclick="toggleSubject('webdev')"> Web Development</div>
+      <div class="subject-options" id="webdev-options">
+        <a href="#" onclick="showContent('webdev-questions')"> Previous Year Questions</a>
+        <a href="#" onclick="showContent('webdev-notes')"> Notes</a>
+      </div>
+    </div>
+
+    <div style="margin-top: 30px;">
+      <a href="#" onclick="showContent('home')" style="background: #2a2a2a;">Home</a>
+    </div>
+  </div>
+
+  <div class="main">
+    <h1>Scaler Midterm Question Bank</h1>
+    <div class="breadcrumb" id="breadcrumb">Home</div>
+
+    <!-- Home Section -->
+    <div id="home" class="content-section home-section">
+      <p>Welcome! This is a collection of questions from previous batch of 2024 to help 2025 freshers prepare better.</p>
+      <p>Navigate through the subjects in the sidebar to access:</p>
+      <ul>
+        <li><strong>Previous Year Questions:</strong> Curated questions from previous batches</li>
+        <li><strong>Notes:</strong> Study materials and reference notes (Coming Soon)</li>
+      </ul>
+      <p> Furthermore this is an opensoource website so you can contribute to this website yourself as well </p>
+    </div>
+
+    <div class="search-box" id="search-box" style="display: none;">
+      <input type="text" id="search" placeholder="Search for questions...">
+    </div>
+
+<div id="discrete-maths-questions" class="content-section">
+  <div class="question">
+    <h3>Q1: The Startup Logistics Problem</h3>
+    <p>
+      Lina is the operations manager at a fast-growing startup. To streamline operations, she must solve a few problems using functions.
+    </p>
+    <p><b>Challenge 1: Delivery Routes</b></p>
+    <ul>
+      <li>If Lina assigns a driver to a unique route, but some customers are missed, what kind of function is this (Injective, Surjective, or Bijective)?</li>
+      <li>If every customer is covered but some drivers have more than one route, what kind of function is this (Injective, Surjective, or Bijective)?</li>
+    </ul>
+    <p><b>Challenge 2: Pricing Model</b></p>
+    <ul>
+      <li>Service A: f(x) = 5x + 15 and Service B: g(x) = 3x</li>
+      <li>If a client subscribes to both services, what is (f+g)(x)?</li>
+      <li>If Lina applies a discount by multiplying costs, what is (f∗g)(x)?</li>
+    </ul>
+    <p><b>Challenge 3: Efficiency Analysis</b></p>
+    <ul>
+      <li>Delivery time: g(x) = x + 2, Cost: f(x) = x + 5</li>
+      <li>Find (f∘g)(x) and (g∘f)(x).</li>
+    </ul>
+    <p><b>Challenge 4: Reversing a Process</b></p>
+    <ul>
+      <li>Given h(x) = (2x + 4) / 3, find h⁻¹(x).</li>
+    </ul>
+    <button class="show-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">Answer:
+1. Not surjective, but injective.
+2. Surjective, not injective.
+3. (f+g)(x) = 8x + 15, (f∗g)(x) = 15x + 5x²
+4. (f∘g)(x) = (x+2)+5 = x+7, (g∘f)(x) = (x+5)+2 = x+7
+5. h⁻¹(x) = (3x - 4) / 2
+    </div>
+  </div>
+
+  <div class="question">
+    <h3>Q2: Rules of Inference Problem</h3>
+    <p>
+      Hypotheses:  
+      1. If it does not rain or if it is not foggy, then the sailing race will be held and the lifesaving demonstration will go on.  
+      2. If the sailing race is held, then the trophy will be awarded.  
+      3. The trophy was not awarded.  
+    </p>
+    <p>Prove: "It rained".</p>
+    <button class="show-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">Answer:
+Using rules of inference:  
+- From (2) and (3), sailing race was not held.  
+- From (1), for the race not to be held, "it must have rained".  
+Therefore, conclusion: It rained.
+    </div>
+  </div>
+
+  <div class="question">
+    <h3>Q3: Set Operations</h3>
+    <p>A = {2, 4, 6, 8}, B = {4, 6, 9, 12}, C = {6, 12, 15}</p>
+    <ul>
+      <li>(A∪B)∩C</li>
+      <li>(A−B)∪(B∩C)</li>
+      <li>A−B−C</li>
+      <li>A−(B∩C)</li>
+    </ul>
+    <button class="show-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">Answer:
+a. (A∪B)∩C = {6,12}  
+b. (A−B)∪(B∩C) = {2,8,6,12}  
+c. A−B−C = {2,8}  
+d. A−(B∩C) = {2,4,8}
+    </div>
+  </div>
+
+  <div class="question">
+    <h3>Q4: The Digital Vault Challenge</h3>
+    <p>
+      A hacker named Alex designed a vault that requires solving binary and logical challenges.
+    </p>
+    <p><b>Challenge 1:</b> Code A = 10101000, Code B = 11000101. Find A+B in decimal and 8-bit binary.</p>
+    <p><b>Challenge 2:</b> Find the 16-bit two's complement of (-8).</p>
+    <p><b>Challenge 3:</b> P = ((x ∧ y) ∧ (x ∨ y)) ∧ (x ∧ y), where x=15 and y=9. Find P in decimal.</p>
+    <button class="show-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">Answer:
+1. A=168, B=197 → A+B=365, Binary=101101101 (needs 9 bits).  
+2. 16-bit two’s complement of -8 = 1111111111111000.  
+3. x=15 (1111), y=9 (1001) → x∧y=1001=9.  
+x∨y=1111=15.  
+So P = (9 ∧ 15) ∧ 9 = 9.  
+Decimal = 9.
+    </div>
+  </div>
+</div>
+
+
+    <!-- Discrete Maths Notes -->
+    <div id="discrete-maths-notes" class="content-section">
+      <div class="notes-placeholder">
+        <h3> Discrete Mathematics Notes</h3>
+        <p>Notes will be available soon. PDF materials will be uploaded here.</p>
+      </div>
+    </div>
+
+    <!-- IPC Questions -->
+    <div id="ipc-questions" class="content-section">
+      <div class="question">
+        <h3>Q1: Compute A^B</h3>
+        <p>You are given two integers A and B. Find the value of A^B.</p>
+        <button class="show-btn" onclick="toggleAnswer(this)">Show Answer</button>
+        <div class="answer">Answer:
+A^B can be computed using Math.pow(A, B).
+Example: For A=2, B=3 → 2^3 = 8</div>
+      </div>
+
+      <div class="question">
+        <h3>Q2: Changing Permissions of a File</h3>
+        <p>Write a shell script to create a directory, a file inside it, and change its permissions 
+so that the owner has read/write permissions, and group/others have read-only.</p>
+        <button class="show-btn" onclick="toggleAnswer(this)">Show Answer</button>
+        <div class="answer">Answer:
+mkdir test_directory
+cd test_directory
+touch test_file.txt
+chmod 644 test_file.txt
+ls -l test_file.txt | cut -d ' ' -f 1</div>
+      </div>
+
+      <div class="question">
+        <h3>Q3: Relation of N with 18</h3>
+        <p>Given a number N, print whether N is greater than, smaller than, or equal to 18.</p>
+        <button class="show-btn" onclick="toggleAnswer(this)">Show Answer</button>
+        <div class="answer">Answer:
+if (N > 18) print "N is Greater than 18"
+else if (N < 18) print "N is smaller than 18"
+else print "N is equal to 18"</div>
+      </div>
+
+      <div class="question">
+        <h3>Q4: Leap Year III</h3>
+        <p>Given an integer A (year), return 1 if it is a leap year, else return 0.</p>
+        <button class="show-btn" onclick="toggleAnswer(this)">Show Answer</button>
+        <div class="answer">Answer:
+Leap year if:
+- divisible by 400 OR
+- divisible by 4 AND not divisible by 100
+Example: 2020 → 1, 1999 → 0</div>
+      </div>
+
+      <div class="question">
+        <h3>Q5: Is It Perfect?</h3>
+        <p>Check if a number N is a perfect number.</p>
+        <button class="show-btn" onclick="toggleAnswer(this)">Show Answer</button>
+        <div class="answer">Answer:
+Perfect number = sum of its proper divisors.
+Example: 6 → divisors (1,2,3), sum=6 → YES
+4 → divisors (1,2), sum=3 → NO</div>
+      </div>
+
+      <div class="question">
+        <h3>Q6: Inverted Numeric Pyramid</h3>
+        <p>Take integer N as input, print the numeric inverted half pyramid pattern.</p>
+        <button class="show-btn" onclick="toggleAnswer(this)">Show Answer</button>
+        <div class="answer">Answer:
+Example: N=3
+1 2 3
+1 2
+1</div>
+      </div>
+    </div>
+
+    <!-- IPC Notes -->
+    <div id="ipc-notes" class="content-section">
+      <div class="notes-placeholder">
+        <h3> IPC (Introduction to Programming Concepts) Notes</h3>
+        <p>Notes will be available soon. PDF materials will be uploaded here.</p>
+      </div>
+    </div>
+
+    <!-- Web Development Questions -->
+    <div id="webdev-questions" class="content-section">
+      <div class="question">
+        <h3>Q1: Build a simple webpage with a navigation bar</h3>
+        <p><b>Description:</b> Create a simple webpage with a navigation bar using the &lt;nav&gt; tag that contains three links inside anchor tags: "Home", "About", and "Contact". The links should be aligned horizontally and when hovered over they should change color to green.</p>
+        <p><b>Test cases:</b> Should have links present and color changes upon hover.</p>
+        <button class="show-btn" onclick="toggleAnswer(this)">Show Answer</button>
+        <div class="answer">Answer: Use &lt;nav&gt; with &lt;a&gt; tags styled using CSS flex or inline-block. Apply hover state to change color.</div>
+      </div>
+
+      <div class="question">
+        <h3>Q2: Style a Button with Rounded Corners</h3>
+        <p><b>Description:</b> Create a button with the label "Submit" that has rounded corners, a blue background, and white text. When hovered, the background should change to dark blue.</p>
+        <p><b>Test cases:</b> Should have button with rounded corners and color changes on hover.</p>
+        <button class="show-btn" onclick="toggleAnswer(this)">Show Answer</button>
+        <div class="answer">Answer: Use CSS properties like border-radius, background-color, and hover selector for styling.</div>
+      </div>
+
+      <div class="question">
+        <h3>Q3: Create a Responsive Two-Column Layout</h3>
+        <p><b>Description:</b> Create a responsive webpage with two columns: the left column should have a width of 30% and the right column 70%. On screens smaller than 600px, the two columns should stack vertically.</p>
+        <p><b>Test cases:</b> Should display two columns on large screens and stack them on a small screen.</p>
+        <button class="show-btn" onclick="toggleAnswer(this)">Show Answer</button>
+        <div class="answer">Answer: Use CSS Flexbox or Grid with media queries for responsiveness.</div>
+      </div>
+
+      <div class="question">
+        <h3>Q4: Implement a Basic Box Model Structure</h3>
+        <p><b>Description:</b> Create a box with a width of 300px, height of 150px, a blue border of 5px, 20px of padding, and 10px of margin. The background of the box should be yellow.</p>
+        <p><b>Test cases:</b> Should have a box with the correct dimensions, padding, margin, and border.</p>
+        <button class="show-btn" onclick="toggleAnswer(this)">Show Answer</button>
+        <div class="answer">Answer: Apply width, height, margin, padding, border, and background-color styles in CSS.</div>
+      </div>
+
+      <div class="question">
+        <h3>Q5: Create a Flexbox-Based Pricing Table</h3>
+        <p><b>Description:</b> Design a pricing table with three columns for different plans: Basic, Standard, and Premium. Each column should have a header, a list of features, and a "Buy Now" button. The columns should be centered on the page and have equal width.</p>
+        <p><b>Test cases:</b> Should have a container with centered columns and equal width.</p>
+        <button class="show-btn" onclick="toggleAnswer(this)">Show Answer</button>
+        <div class="answer">Answer: Use Flexbox with justify-content: center; and flex: 1; for equal column widths.</div>
+      </div>
+    </div>
+
+    <!-- Web Development Notes -->
+    <div id="webdev-notes" class="content-section">
+      <div class="notes-placeholder">
+        <h3> Web Development Notes</h3>
+        <p>Notes will be available soon. PDF materials will be uploaded here.</p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
