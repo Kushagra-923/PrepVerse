@@ -134,10 +134,11 @@
     .home-section {
       display: block;
     }
+    .question.hidden {
+      display: none;
+    }
   </style>
 </head>
-<script src="script.js">
-</script>
 <body>
   <div class="sidebar">
     <h2>Navigation</h2>
@@ -187,7 +188,7 @@
     </div>
 
     <div class="search-box" id="search-box" style="display: none;">
-      <input type="text" id="search" placeholder="Search for questions...">
+      <input type="text" id="search" placeholder="Search for questions..." oninput="searchQuestions()">
     </div>
 
 <div id="discrete-maths-questions" class="content-section">
@@ -273,7 +274,7 @@ d. A−(B∩C) = {2,4,8}
     <button class="show-btn" onclick="toggleAnswer(this)">Show Answer</button>
     <div class="answer">Answer:
 1. A=168, B=197 → A+B=365, Binary=101101101 (needs 9 bits).  
-2. 16-bit two’s complement of -8 = 1111111111111000.  
+2. 16-bit two's complement of -8 = 1111111111111000.  
 3. x=15 (1111), y=9 (1001) → x∧y=1001=9.  
 x∨y=1111=15.  
 So P = (9 ∧ 15) ∧ 9 = 9.  
@@ -417,6 +418,144 @@ Example: N=3
       </div>
     </div>
   </div>
+
+  <script>
+    // Toggle subject dropdown menus
+    function toggleSubject(subjectId) {
+      const options = document.getElementById(subjectId + '-options');
+      
+      // Close all other dropdowns first
+      const allOptions = document.querySelectorAll('.subject-options');
+      allOptions.forEach(opt => {
+        if (opt.id !== subjectId + '-options') {
+          opt.classList.remove('active');
+        }
+      });
+      
+      // Toggle the clicked dropdown
+      options.classList.toggle('active');
+    }
+
+    // Show content sections and update breadcrumb
+    function showContent(contentId) {
+      // Hide all content sections
+      const allSections = document.querySelectorAll('.content-section');
+      allSections.forEach(section => {
+        section.classList.remove('active');
+      });
+      
+      // Show selected section
+      const selectedSection = document.getElementById(contentId);
+      if (selectedSection) {
+        selectedSection.classList.add('active');
+      }
+      
+      // Update breadcrumb
+      updateBreadcrumb(contentId);
+      
+      // Show/hide search box
+      const searchBox = document.getElementById('search-box');
+      if (contentId.includes('questions')) {
+        searchBox.style.display = 'block';
+      } else {
+        searchBox.style.display = 'none';
+      }
+      
+      // Update active link styling
+      updateActiveLink(contentId);
+      
+      // Clear search when switching sections
+      const searchInput = document.getElementById('search');
+      if (searchInput) {
+        searchInput.value = '';
+        searchQuestions(); // Reset search results
+      }
+    }
+
+    // Update breadcrumb navigation
+    function updateBreadcrumb(contentId) {
+      const breadcrumb = document.getElementById('breadcrumb');
+      let breadcrumbText = 'Home';
+      
+      switch(contentId) {
+        case 'discrete-maths-questions':
+          breadcrumbText = 'Home > Discrete Maths > Previous Year Questions';
+          break;
+        case 'discrete-maths-notes':
+          breadcrumbText = 'Home > Discrete Maths > Notes';
+          break;
+        case 'ipc-questions':
+          breadcrumbText = 'Home > IPC > Previous Year Questions';
+          break;
+        case 'ipc-notes':
+          breadcrumbText = 'Home > IPC > Notes';
+          break;
+        case 'webdev-questions':
+          breadcrumbText = 'Home > Web Development > Previous Year Questions';
+          break;
+        case 'webdev-notes':
+          breadcrumbText = 'Home > Web Development > Notes';
+          break;
+      }
+      
+      breadcrumb.textContent = breadcrumbText;
+    }
+
+    // Update active link styling
+    function updateActiveLink(contentId) {
+      // Remove active class from all links
+      const allLinks = document.querySelectorAll('.sidebar a');
+      allLinks.forEach(link => {
+        link.classList.remove('active');
+      });
+      
+      // Add active class to current link
+      const activeLink = document.querySelector(`[onclick="showContent('${contentId}')"]`);
+      if (activeLink) {
+        activeLink.classList.add('active');
+      }
+    }
+
+    // Toggle answer visibility
+    function toggleAnswer(button) {
+      const answer = button.nextElementSibling;
+      if (answer.style.display === 'none' || answer.style.display === '') {
+        answer.style.display = 'block';
+        button.textContent = 'Hide Answer';
+        button.style.background = '#ff6b6b';
+      } else {
+        answer.style.display = 'none';
+        button.textContent = 'Show Answer';
+        button.style.background = '#4cafef';
+      }
+    }
+
+    // Search functionality
+    function searchQuestions() {
+      const searchTerm = document.getElementById('search').value.toLowerCase();
+      const activeSection = document.querySelector('.content-section.active');
+      
+      if (!activeSection) return;
+      
+      const questions = activeSection.querySelectorAll('.question');
+      
+      questions.forEach(question => {
+        const questionText = question.textContent.toLowerCase();
+        
+        if (searchTerm === '' || questionText.includes(searchTerm)) {
+          question.classList.remove('hidden');
+        } else {
+          question.classList.add('hidden');
+        }
+      });
+    }
+
+    // Initialize the page
+    document.addEventListener('DOMContentLoaded', function() {
+      // Show home by default
+      showContent('home');
+    });
+  </script>
 
 </body>
 </html>
